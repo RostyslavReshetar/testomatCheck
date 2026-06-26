@@ -11,8 +11,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
+    "@testomatio/reporter": "^2.9.2",
     "@types/node": "^22.0.0",
-    "typescript": "^5.6.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "typescript": "^5.6.0"
   }
 }
