@@ -35,6 +35,8 @@ jobs:
       - name: Run tests
         env:
           TESTOMATIO_PROJECT_TOKEN: ${{ secrets.TESTOMATIO_PROJECT_TOKEN }}
+          TESTOMATIO_TITLE: "${{ github.ref_name }} #${{ github.run_number }}"
+          TESTOMATIO_ENV: "${{ github.ref_name == 'main' && 'main' || 'feature' }}"
         run: npx playwright test
 
       - name: Upload Playwright report
