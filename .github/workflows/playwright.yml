@@ -29,8 +29,8 @@ jobs:
 
       - name: Sync tests to Testomat
         env:
-          TESTOMATIO_PROJECT_TOKEN: ${{ secrets.TESTOMATIO_PROJECT_TOKEN }}
-        run: npx check-tests Playwright "**/*{.,_}{test,spec}.ts" --dir ./tests
+          TESTOMATIO: ${{ secrets.TESTOMATIO_PROJECT_TOKEN }}
+        run: npx check-tests Playwright "**/*{.,_}{test,spec}.ts" --dir ./tests --typescript
 
       - name: Run tests
         env:
