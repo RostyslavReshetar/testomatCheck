@@ -26,4 +26,10 @@ test.describe('Google Home Page', () => {
     await homePage.searchInput.clear();
     await expect(homePage.searchInput).toHaveValue('');
   });
+
+  test('should have search input focused after load', async ({ homePage }) => {
+    await expect(homePage.searchInput).toBeVisible();
+    await homePage.searchInput.click();
+    await expect(homePage.searchInput).toBeFocused();
+  });
 });
