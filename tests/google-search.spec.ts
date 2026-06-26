@@ -9,13 +9,13 @@ async function skipIfCaptcha(searchResultsPage: any) {
 }
 
 test.describe('Google Search', () => {
-  test('should navigate to results page after search', async ({ homePage, page }) => {
+  test('should navigate to results page after search', async ({ homePage, page }) => { // @Td505da1c
     await homePage.search(SEARCH_QUERIES.simple);
     // Accept both normal results and sorry (CAPTCHA) page as "navigated"
     await expect(page).toHaveURL(/google\.com\/(search|sorry)/);
   });
 
-  test('should display relevant results for query', async ({ homePage, searchResultsPage }) => {
+  test('should display relevant results for query', async ({ homePage, searchResultsPage }) => { // @Tdd6f7d4c
     await homePage.search(SEARCH_QUERIES.simple);
     await skipIfCaptcha(searchResultsPage);
 
@@ -30,7 +30,7 @@ test.describe('Google Search', () => {
     expect(hasRelevantResult).toBeTruthy();
   });
 
-  test('should show result statistics or results', async ({ homePage, searchResultsPage }) => {
+  test('should show result statistics or results', async ({ homePage, searchResultsPage }) => { // @T83d43c7f
     await homePage.search(SEARCH_QUERIES.simple);
     await skipIfCaptcha(searchResultsPage);
 
@@ -40,7 +40,7 @@ test.describe('Google Search', () => {
     expect(hasResults).toBeTruthy();
   });
 
-  test('should support Ukrainian language search', async ({ homePage, searchResultsPage }) => {
+  test('should support Ukrainian language search', async ({ homePage, searchResultsPage }) => { // @T3c6b1c5c
     await homePage.search(SEARCH_QUERIES.ukrainian);
     await skipIfCaptcha(searchResultsPage);
 
@@ -55,7 +55,7 @@ test.describe('Google Search', () => {
     expect(hasUkrainianResult).toBeTruthy();
   });
 
-  test('should allow refining search query', async ({ homePage, searchResultsPage, page }) => {
+  test('should allow refining search query', async ({ homePage, searchResultsPage, page }) => { // @T2016ff51
     await homePage.search('Playwright');
     await skipIfCaptcha(searchResultsPage);
 
@@ -63,7 +63,7 @@ test.describe('Google Search', () => {
     await expect(page).toHaveURL(/q=Playwright/i);
   });
 
-  test('should navigate to next page of results', async ({ homePage, searchResultsPage }) => {
+  test('should navigate to next page of results', async ({ homePage, searchResultsPage }) => { // @T25bada31
     await homePage.search(SEARCH_QUERIES.simple);
     await skipIfCaptcha(searchResultsPage);
 
