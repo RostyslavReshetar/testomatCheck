@@ -11,7 +11,7 @@ test.describe('Google Home Page', () => {
 
   test('should have correct page title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/Google/);
+    await expect(page).toHaveTitle(/Yahoo/);
   });
 
   test('should show search suggestions when typing', async ({ homePage }) => {

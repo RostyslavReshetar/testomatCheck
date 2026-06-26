@@ -26,6 +26,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
+      - name: Sync tests to Testomat
+        env:
+          TESTOMATIO_PROJECT_TOKEN: ${{ secrets.TESTOMATIO_PROJECT_TOKEN }}
+        run: npx @testomatio/check-tests --framework playwright --dir ./tests
+
       - name: Run tests
         env:
           TESTOMATIO_PROJECT_TOKEN: ${{ secrets.TESTOMATIO_PROJECT_TOKEN }}

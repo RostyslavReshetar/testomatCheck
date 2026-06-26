@@ -13,7 +13,7 @@ export default defineConfig({
   reporter: [
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['list'],
-    ...(process.env.TESTOMATIO_PROJECT_TOKEN ? [['@testomatio/reporter', { apiKey: process.env.TESTOMATIO_PROJECT_TOKEN }] as any] : []),
+    ...(process.env.TESTOMATIO_PROJECT_TOKEN ? [['@testomatio/reporter/lib/adapter/playwright.js', { apiKey: process.env.TESTOMATIO_PROJECT_TOKEN }] as any] : []),
   ],
   use: {
     baseURL: 'https://www.google.com',
